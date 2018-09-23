@@ -20,7 +20,7 @@ class Solution(object):
                 stack.append(child)
         return arr[::-1]
 
-        """Recursive solution:
+        """Recursive method:
         arr = []
         if not root:
             return arr

@@ -8,21 +8,22 @@ class Solution(object):
         :type root: Node
         :rtype: List[int]
         """
+        # Iterative method:
         arr = []
         if not root:
             return arr
-        queue = [root]
-        while queue:
-            current = queue.pop()
+        stack = [root]
+        while stack:
+            current = stack.pop()
             arr.append(current.val)
             for child in current.children[::-1]:
-                queue.append(child)
+                stack.append(child)
         return arr
 
-        """Recursive method: 
+        """Recursive method:
         arr = []
         if not root:
-            return arr 
+            return arr
         def recursion(root):
             arr.append(root.val)
             for child in root.children:
