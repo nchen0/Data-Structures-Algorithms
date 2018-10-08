@@ -11,7 +11,7 @@ class Queue:
         return self.data == []
 
     def enqueue(self, item):
-        self.data.insert(item)
+        self.data.insert(0, item)
 
     def dequeue(self):
         return self.data.pop(0)
