@@ -12,9 +12,10 @@ def InsertNodeAtTail(head, data):
         return head
 
 # If we had the reference of the tail:
+# Assuming L is the linked list.
 
 
-def InsertNodeAtTail(L, data):  # Adduming L is the linked list.
+def InsertNodeAtTail(L, data):
     node = Node(data)
     node.next = None
     L.tail.next = node
