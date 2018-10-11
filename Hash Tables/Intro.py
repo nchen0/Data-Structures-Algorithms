@@ -17,6 +17,13 @@ Hash Tables:
 - The big advantages of hash tables over arrays and linked lists is that they're very fast. Finding, inserting, deleting. 
 - A hash table begins with multiple "buckets" waiting for content. We want to add a key value pair to the hash table. We are thus always adding in pairs.
 - When we are inputting a function, the hash table takes the key, runs it through the hash function, then compresses it to fit one of our buckets. When we are trying to look up that item at a later time, it does exactly the same thing, and it goes directly to the bucket in which that contains the value we're looking for. So there's no binary/linear etc search. We go directly to that value. 
+
+Collision Resolution:
+- Separate Chaining. A simple and efficient way for dealing with collisions is to have each bucket store its own secondary container, holding items (k,v) such that h(k) = j, the index. The secondary container would naturally be implemented as a list. 
+    - Advantage of using SC: affording simple implementations of map operations
+    - Disadvantages of using SC: If space is at a premium, auxiliary structures of extra lists would not be ideal.
+- Open addressing:
+    - Linear Probing: Another method is linear addressing, where you if you try to insert the item (k,v) into a bucket that's already occupied where j = h(k), you can try j+1. 
 """
 # Basic implementation of a hash table.
 # Below we are using separate chaining as the collision resolution.
