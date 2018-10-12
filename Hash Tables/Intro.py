@@ -22,11 +22,22 @@ Collision Resolution:
 - Separate Chaining. A simple and efficient way for dealing with collisions is to have each bucket store its own secondary container, holding items (k,v) such that h(k) = j, the index. The secondary container would naturally be implemented as a list. 
     - Advantage of using SC: affording simple implementations of map operations
     - Disadvantages of using SC: If space is at a premium, auxiliary structures of extra lists would not be ideal.
+    - Advantages & Disadvantages of using linked lists vs arrays in collision resolution of a hash table: https://stackoverflow.com/questions/30224926/why-are-we-using-linked-list-to-address-collisions-in-hash-tables
 - Open addressing:
     - Linear Probing: Another method is linear addressing, where you if you try to insert the item (k,v) into a bucket that's already occupied where j = h(k), you can try j+1. 
+        - Advantage of using LP: Saves space.
+        - Disadvantage of using LP: It requires more complexity to set up. 
+    - Linear Probing vs separate chaining: https://stackoverflow.com/questions/23821764/why-do-we-use-linear-probing-in-hash-tables-when-there-is-separate-chaining-link
+
+Load Factors & Rehashing:
+- The load factor is how full the hash table is allowed to get before its capacity is increased. It is calculated by n / N (n being the number of entries, and N being the capacity). 
+- As a general rule, the default load factor of .75 offers a good tradeoff between time and space costs. Higher values decrease the space overhead but increases the lookup cost. 
+- With separate chaining, as the load factor gets close to 1, the collision chance greatly increases. < 0.9 is a good number to keep the load factor for separate chaining.
+- With open addressing, as the load factor grows beyond 0.5 and starts approaching 1, clusters of entries in the bucket array start to grow as well. < 0.5 is a good number to keep for linear probing. 
+- Python's own implementation of open addressing enforces < 2/3. 
 """
 # Basic implementation of a hash table.
-# Below we are using separate chaining as the collision resolution.
+# Below we are using separate chaining as the collision resolution, with arrays.
 
 
 class HashTable:
@@ -52,7 +63,7 @@ class HashTable:
                 if old_pair[0] == key:
                     # Here we are replacing the value if it already exists
                     old_pair[1] = value
-                return True
+                    return True
             # If the key doesn't exist, but is in the same index because of how hash works (collided), we can add to the list here.
             self.map[index].append(pair)
             return True
