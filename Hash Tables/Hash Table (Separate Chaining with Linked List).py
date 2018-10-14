@@ -20,7 +20,7 @@ class HashTable:
         return hash % self.capacity
         # or: return hash(key) % self.capacity
 
-    def add(self, key, val):
+    def add(self, key, value):
         index = self.hash_function(key)
         entry = self.map[index]
         # This step is here because we're doing entry.next below, so we are skipping over the first element of the linked list.
@@ -28,7 +28,7 @@ class HashTable:
             entry.value = value
             return True
         if entry is None:
-            entry = self.Pair(key, val)
+            entry = self.Pair(key, value)
         else:
             while entry.next is not None:
                 if entry.key == key:

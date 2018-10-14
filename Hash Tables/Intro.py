@@ -102,3 +102,54 @@ h.add('Ming', '293-6753')
 h._print()
 h.delete('Bob')
 h._print()
+
+
+class MyHashSet:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.capacity = 10000
+        self.map = [None] * self.capacity
+
+    def hash_function(self, key):
+        return key % self.capacity
+
+    def add(self, key):
+        """
+        :type key: int
+        :rtype: void
+        """
+        if self.contains(key):
+            return
+
+        index = self.hash_function(key)
+        if not self.map[index]:
+            self.map[index] = []
+        self.map[index].append(key)
+
+    def remove(self, key):
+        """
+        :type key: int
+        :rtype: void
+        """
+        if not self.contains(key):
+            return
+
+        index = self.hash_function(key)
+        self.map[index].remove(key)
+
+    def contains(self, key):
+        """
+        Returns true if this set contains the specified element
+        :type key: int
+        :rtype: bool
+        """
+        index = self.hash_function(key)
+        if not self.map[index]:
+            return False
+        for k in self.map[index]:
+            if k == key:
+                return True
+        return False
