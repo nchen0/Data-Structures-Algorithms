@@ -1,4 +1,5 @@
 # You’re given the pointer to the head node of a linked list, an integer to add to the list and the position at which the integer must be inserted. Create a new node with the given integer, insert this node at the desired position and return the head node.
+# : https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list/problem
 
 
 def insertNodeAtPosition(head, data, position):
@@ -25,3 +26,21 @@ def insertNodeAtPosition(head, data, position):
     current.next.next = temp
     return current
     """
+
+# Alternative Solution:
+
+
+def insertNodeAtPosition(head, data, position):
+    node = SinglyLinkedListNode(data)
+    if position == 0:
+        node.next = head
+        return node
+    current = head
+    count = 0
+    while current:
+        if count + 1 == position:
+            node.next = current.next
+            current.next = node
+        count += 1
+        current = current.next
+    return head

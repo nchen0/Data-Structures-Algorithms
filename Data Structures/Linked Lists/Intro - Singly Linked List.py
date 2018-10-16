@@ -24,3 +24,6 @@ def printLinkedList(head):
     while current:
         print(current.data)
         current = current.next
+
+
+# With head/current, etc, it doesn't matter if we're returning back node (after doing node.next = head), or returning head, because everything references the same list. Because we assign current = head, anything that we change in the current linked list will affect the head linked list, as they're the same list. What we're returning back (the head), is just there so we can have a reference to the head of the linked list as we traverse through it with current.

@@ -35,3 +35,21 @@ class Solution(object):
             else:
                 current = current.next
         return head
+
+
+# Same solution, slightly different:
+class Solution:
+    def deleteDuplicates(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        current = head
+        while current:
+            if current.next is None:
+                return head
+            if current.val == current.next.val:
+                current.next = current.next.next
+            else:
+                current = current.next
+        return head
