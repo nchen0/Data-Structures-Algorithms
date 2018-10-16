@@ -1,7 +1,16 @@
 # A linked list is a linear data structure in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers.
 # We can identify the tail as the node having None as its next reference.
 # There is not an absolute need to store a direct reference to the tail of the list, as it could otherwise be located by starting at the head and traversing the rest of the list. However, storing an explicit reference to the tail node is a common convenience to avoid such a traversal.
-
+"""
+- Advantages of Arrays vs Linked Lists:
+    - Arrays provide O(1) access to an element based on an integer index. The ability to access elements at O(1) is a hallmark of arrays. In contrast, linked lists does it at O(n).
+    - Arrays typically use proportionally less memory than linked lists. This may sound counterintuitive, especially given that the length of a dynamic array may be longer than the number of elements it stores. 
+        - What differs is the auxiliary amount of memory that are used by the two structures. For an array-based container of n elements, a typical worst case may be that a recently resized dynamic array has allocated memory for 2n object references. 
+        - With linked lists, memory must be devoted not only to store a reference to each contained object, but also to explicitly reference the link to the nodes. So a singly linked list of llength n ALREADY requires a 2n reference. 
+    - Operations with equivalent asymptotic bounds typically run a constant factor more fficiently with an array vs a linked list. 
+      - Consider the typical enqueue operation for a queue. Ignoring the issue of resizing an array, the operation for the ArrayQueue involves an arithmetic calculation of the new index, an increment of an integer, and storing a reference to the element in the array.
+      - In contrast, the process for a linked node requires the instantiation of a node, appropriate linking of nodes, and an increment of an integer. While this operation completes in O(1) time in either model, the actual number of CPU operations will be more in the linked version, especially given the instantiation of the new node. 
+"""
 # Example of a Linked List
 
 
