@@ -10,6 +10,11 @@
     - Operations with equivalent asymptotic bounds typically run a constant factor more fficiently with an array vs a linked list. 
       - Consider the typical enqueue operation for a queue. Ignoring the issue of resizing an array, the operation for the ArrayQueue involves an arithmetic calculation of the new index, an increment of an integer, and storing a reference to the element in the array.
       - In contrast, the process for a linked node requires the instantiation of a node, appropriate linking of nodes, and an increment of an integer. While this operation completes in O(1) time in either model, the actual number of CPU operations will be more in the linked version, especially given the instantiation of the new node. 
+- Advantages of Linked Lists:
+    - Linked Lists provide a worst case time bound for their operations, in contrast to the amortized bounds of arrays. 
+    - Linked Lists support O(1) time insertions and deletions at arbitrary positions. 
+        - This is in stark contrast to an array based sequence. Ignoring the issue of resizing an array, inserting or deleting an element from the end of an array based list can be done in constant time.
+        - However, more general insertions and deletions are expensive. 
 """
 # Example of a Linked List
 
