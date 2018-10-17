@@ -3,7 +3,7 @@
 # There is not an absolute need to store a direct reference to the tail of the list, as it could otherwise be located by starting at the head and traversing the rest of the list. However, storing an explicit reference to the tail node is a common convenience to avoid such a traversal.
 """
 - Advantages of Arrays vs Linked Lists:
-    - Arrays provide O(1) access to an element based on an integer index. The ability to access elements at O(1) is a hallmark of arrays. In contrast, linked lists does it at O(n).
+    - Arrays provide O(1) access to an element based on an integer index, whereas linkedlists only have it for head and maybe tail. The ability to access elements at O(1) is a hallmark of arrays. In contrast, linked lists does it at O(n).
     - Arrays typically use proportionally less memory than linked lists. This may sound counterintuitive, especially given that the length of a dynamic array may be longer than the number of elements it stores. 
         - What differs is the auxiliary amount of memory that are used by the two structures. For an array-based container of n elements, a typical worst case may be that a recently resized dynamic array has allocated memory for 2n object references. 
         - With linked lists, memory must be devoted not only to store a reference to each contained object, but also to explicitly reference the link to the nodes. So a singly linked list of llength n ALREADY requires a 2n reference. 
