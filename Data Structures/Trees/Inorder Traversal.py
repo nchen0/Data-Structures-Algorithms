@@ -31,3 +31,24 @@ class Solution(object):
             self.recursive(root.left, arr)
             arr.append(root.val)
             self.recursive(root.right, arr)
+
+# Iterative solution:
+
+
+class Solution(object):
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        current = root
+        arr = []
+        stack = []
+        while current or stack:
+            while current:
+                stack.append(current)
+                current = current.left
+            current = stack.pop()
+            arr.append(current.val)
+            current = current.right
+        return arr
