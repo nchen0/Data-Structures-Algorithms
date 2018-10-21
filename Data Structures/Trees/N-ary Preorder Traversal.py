@@ -20,14 +20,41 @@ class Solution(object):
                 stack.append(child)
         return arr
 
-        """Recursive method:
+# Recursive solution
+
+
+class Solution(object):
+    def preorder(self, root):
+        """
+        :type root: Node
+        :rtype: List[int]
+        """
         arr = []
         if not root:
             return arr
+
         def recursion(root):
             arr.append(root.val)
             for child in root.children:
                 recursion(child)
         recursion(root)
         return arr
+
+
+# Alternative recursive solution, a bit faster:
+class Solution(object):
+    def preorder(self, root):
         """
+        :type root: Node
+        :rtype: List[int]
+        """
+        arr = []
+        self.recursion(root, arr)
+        return arr
+
+    def recursion(self, root, arr):
+        if root is None:
+            return arr
+        arr.append(root.val)
+        for child in root.children:
+            self.recursion(child, arr)

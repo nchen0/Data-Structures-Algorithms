@@ -32,6 +32,7 @@
             - Uses: In BSTs, this gives nodes in non-decreasing order. 
         - Postorder - (Left, Root, Right) - start at left, go to the right, and then lastly the root. 
             - Uses: Used to delete a tree. 
+            - More uses: Computing the total space used by a directory on a computer, as we cannot ffectively compute the total space used by a directory until after we know the space that is used by the children directories. 
     - Breadth First Search:
         - Level Order: Typically what we think of when we hear BFS, start with root, go through all children, then so forth, each level.
 - DFS vs BFS for trees: https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/
