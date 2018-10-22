@@ -40,7 +40,6 @@ class Solution(object):
         """
         :type p: TreeNode
         :type q: TreeNode
-        :rtype: bool
         """
         if p is None and q is None:
             return True
